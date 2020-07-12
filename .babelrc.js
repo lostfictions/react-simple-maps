@@ -1,9 +1,9 @@
-{
+module.exports = {
   "presets": [
     [
       "@babel/preset-env",
       {
-        "modules": false
+        "modules": process.env["BABEL_CJS"] ? "cjs" : false
       }
     ],
     "@babel/preset-react"
