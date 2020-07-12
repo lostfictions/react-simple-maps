@@ -16,7 +16,7 @@ export default [{
   input: "src/index.js",
   external,
   output: {
-    name: "reactSimpleMaps",      
+    name: "reactSimpleMaps",
     file: pkg.browser,
     format: "umd",
     extend: true,
@@ -42,11 +42,7 @@ export default [{
   output: [{
       file: pkg.main,
       format: "cjs"
-    },
-    {
-      file: pkg.module,
-      format: "es"
-    },
+    }
   ],
   plugins: [
     babel(babelrc()),

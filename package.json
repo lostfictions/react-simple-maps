@@ -3,15 +3,17 @@
   "version": "2.1.2",
   "description": "An svg map chart component built with and for React",
   "main": "dist/index.js",
-  "module": "dist/index.es.js",
+  "module": "dist/esm/index.js",
   "browser": "dist/index.umd.js",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "rollup -c",
+    "build": "run-s -l build:*",
+    "build:esm": "babel src -d dist/esm --source-maps",
+    "build:rollup": "rollup -c",
     "watch": "rollup -cw",
-    "prepare": "rollup -c",
+    "prepublishOnly": "run-s build",
     "test": "mocha './tests/**/*.spec.js' --compilers js:babel-core/register"
   },
   "repository": {
@@ -33,23 +35,23 @@
   },
   "homepage": "https://github.com/zcreativelabs/react-simple-maps#readme",
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-plugin-external-helpers": "^6.22.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-plugin-transform-react-jsx": "^6.24.1",
-    "babelrc-rollup": "^3.0.0",
+    "@babel/cli": "^7.10.4",
+    "@babel/core": "^7.10.4",
+    "@babel/plugin-transform-runtime": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
+    "expect": "^23.5.0",
+    "mocha": "^5.2.0",
+    "npm-run-all": "^4.1.5",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-test-utils": "^0.0.1",
     "rollup": "^1.17.0",
     "rollup-plugin-babel": "^3.0.3",
     "rollup-plugin-commonjs": "^10.0.1",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-terser": "^5.1.1",
-    "expect": "^23.5.0",
-    "mocha": "^5.2.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "prop-types": "^15.7.2",
-    "react-test-utils": "^0.0.1"
+    "rollup-plugin-terser": "^5.1.1"
   },
   "peerDependencies": {
     "react": "^16.8.0",
@@ -57,6 +59,7 @@
     "prop-types": "^15.7.2"
   },
   "dependencies": {
+    "core-js": "^3.6.5",
     "d3-geo": "^1.11.9",
     "d3-selection": "^1.4.1",
     "d3-zoom": "^1.8.3",
