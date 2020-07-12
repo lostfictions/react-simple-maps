@@ -1,8 +1,6 @@
-
-import babel from "rollup-plugin-babel"
-import babelrc from "babelrc-rollup"
-import resolve from "rollup-plugin-node-resolve"
-import commonjs from "rollup-plugin-commonjs"
+import babel from "@rollup/plugin-babel"
+import resolve from "@rollup/plugin-node-resolve"
+import commonjs from "@rollup/plugin-commonjs"
 import { terser } from "rollup-plugin-terser"
 
 import pkg from "./package.json"
@@ -31,7 +29,12 @@ export default [{
     },
   },
   plugins: [
-    babel(babelrc()),
+    babel({
+      babelHelpers: "runtime",
+      // don't understand rollup enough to know why it's complaining, but ok
+      // https://github.com/rollup/plugins/issues/381#issuecomment-627215009
+      skipPreflightCheck: true
+    }),
     resolve(),
     commonjs(),
     terser(),
@@ -45,6 +48,9 @@ export default [{
     }
   ],
   plugins: [
-    babel(babelrc()),
+    babel({
+      babelHelpers: "runtime",
+      skipPreflightCheck: true
+    }),
   ],
 }]
