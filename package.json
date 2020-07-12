@@ -11,8 +11,7 @@
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -cw",
-    "prepare": "rollup -c",
-    "test": "mocha './tests/**/*.spec.js' --compilers js:babel-core/register"
+    "prepare": "rollup -c"
   },
   "repository": {
     "type": "git",
@@ -44,22 +43,18 @@
     "rollup-plugin-commonjs": "^10.0.1",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-terser": "^5.1.1",
-    "expect": "^23.5.0",
-    "mocha": "^5.2.0",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "prop-types": "^15.7.2",
-    "react-test-utils": "^0.0.1"
+    "react-dom": "^16.8.6"
   },
   "peerDependencies": {
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0",
-    "prop-types": "^15.7.2"
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   },
   "dependencies": {
     "d3-geo": "^1.11.9",
     "d3-selection": "^1.4.1",
     "d3-zoom": "^1.8.3",
+    "prop-types": "^15.7.2",
     "topojson-client": "^3.0.0"
   }
 }
